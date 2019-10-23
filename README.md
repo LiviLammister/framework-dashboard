@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * When writing code, I like to start as simply as possible.  I believe the simplest way to display all of the required data is to use a sortable table, so that is where I will begin.
 * Whenever I am deciding between multiple npm packages, I always check the package's stats on npmjs.com.  My feeling is that npm determined weekly downloads, issues, and pull requests are the best stats for determining the quality of a repository, so that is what I will use as well.
+* I am having issues getting downloads data, so for now I am going to switch to forks.
 
 ## Development server
 
