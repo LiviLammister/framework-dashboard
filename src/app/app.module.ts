@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatTableModule
   ],
   providers: [],

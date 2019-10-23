@@ -1,6 +1,6 @@
 export interface IRepository {
     name: string,
-    numDownloads: number
-    numIssues: number,
-    numPullRequests: number
+    download_count: number
+    open_issues_count: number,
+    watchers_count: number
 }
