@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
 
+## Thought Process
+
+* When writing code, I like to start as simply as possible.  I believe the simplest way to display all of the required data is to use a sortable table, so that is where I will begin.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
