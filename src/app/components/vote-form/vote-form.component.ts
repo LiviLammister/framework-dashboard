@@ -28,9 +28,8 @@ export class VoteFormComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true
     if (this.voteForm.valid) {
-      const headers = new HttpHeaders().append("Content-Type", 'application/x-www-form-urlencoded;charset=UTF-8');
-      const { email, vote } = this.voteForm.value
-      this.http.post("http://localhost:3000/api/user", {email, vote}, { headers })
+      const headers = new HttpHeaders().append('Content-Type', 'application/JSON');
+      this.http.post("http://localhost:3000/api/user", JSON.stringify(this.voteForm.value), { headers })
         .subscribe(
           res => console.log(res),
           err => console.log(err)
