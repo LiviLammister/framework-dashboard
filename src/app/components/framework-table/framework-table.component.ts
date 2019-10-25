@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { interval } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { RepositoryService } from '../../services/repository.service';
 
@@ -11,7 +9,6 @@ import { RepositoryService } from '../../services/repository.service';
   styleUrls: ['./framework-table.component.sass']
 })
 export class FrameworkTableComponent implements OnInit {
-  subscription;
   repos;
   sortedRepos;
 
@@ -37,9 +34,7 @@ export class FrameworkTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription = interval(1000).pipe(
-      switchMap(() => this.repositoryService.getRepositories())
-    ).subscribe((data) => {
+    this.repositoryService.getRepositories().subscribe((data) => {
       this.repos = data;
       this.sortedRepos = this.repos.slice();
     })

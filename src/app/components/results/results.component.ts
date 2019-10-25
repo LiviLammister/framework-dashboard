@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { interval } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { ResultService } from 'src/app/services/result.service';
 import { IResult } from 'src/app/interfaces/iresult';
@@ -14,7 +12,6 @@ import { IResult } from 'src/app/interfaces/iresult';
 export class ResultsComponent implements OnInit {
   results: IResult[];
   sortedData: IResult[];
-  subscription
 
   constructor(private resultsService: ResultService) { }
 
@@ -34,11 +31,9 @@ export class ResultsComponent implements OnInit {
         default: return 0;
       }
     });
-  }
+  } 
   ngOnInit() {
-    this.subscription = interval(1000).pipe(
-      switchMap(() => this.resultsService.getResults())
-    ).subscribe((data: IResult[]) => {
+    this.resultsService.getResults().subscribe((data: IResult[]) => {
       this.results = data;
       this.sortedData = this.results.slice()
     })
