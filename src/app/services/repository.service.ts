@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, merge } from 'rxjs';
 
-import { IRepository } from './irepository';
-
 const BASE_URL = 'https://api.github.com/repos'
 const ANGULAR_URL = `${BASE_URL}/angular/angular`;
 const EMBER_URL = `${BASE_URL}/emberjs/ember.js`;
