@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "framework-dashboard-89a5d": {
+      "hosting": {
+        "framework-dashboard": [
+          "framework-dashboard-89a5d"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "framework-dashboard",
+      "public": "dist/framework-dashboard",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

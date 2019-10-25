@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -16,9 +15,10 @@
     "@angular/cdk": "~8.2.3",
     "@angular/cli": "^8.3.14",
     "@angular/common": "~8.0.0",
-    "@angular/compiler-cli": "^8.0.3",
     "@angular/compiler": "~8.0.0",
+    "@angular/compiler-cli": "^8.0.3",
     "@angular/core": "~8.0.0",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "~8.0.0",
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.0.0",
@@ -30,7 +30,8 @@
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "typescript": "~3.4.3",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "firebase": ">= 5.5.7 <7"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
@@ -49,7 +50,12 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0"
+    "tslint": "~5.15.0",
+    "@angular-devkit/architect": "<0.900 || ^0.900.0-0 || ^9.0.0-0",
+    "firebase-tools": "^6.10.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1"
   },
   "engines": {
     "node": "12.3.1",
