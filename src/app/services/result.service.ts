@@ -10,6 +10,6 @@ export class ResultService {
   constructor(private http: HttpClient) { }
 
   getResults(): Observable<Object> {
-    return this.http.get('http://localhost:3000/api/frameworks');
+    return this.http.get('https://warm-mesa-66645.herokuapp.com/api/frameworks');
   }
 }

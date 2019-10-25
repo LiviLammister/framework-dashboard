@@ -29,7 +29,7 @@ export class VoteFormComponent implements OnInit {
     this.isSubmitted = true
     if (this.voteForm.valid) {
       const headers = new HttpHeaders().append('Content-Type', 'application/JSON');
-      this.http.put("http://localhost:3000/api/user", JSON.stringify(this.voteForm.value), { headers })
+      this.http.put("https://warm-mesa-66645.herokuapp.com/api/user", JSON.stringify(this.voteForm.value), { headers })
         .subscribe(
           res => console.log(res),
           err => console.log(err)
