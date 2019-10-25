@@ -1,6 +1,6 @@
 <h2>Submit Your Vote</h2>
 <form [formGroup]="voteForm" (ngSubmit)="onSubmit()">
-    Email: <input id="email" type="email" name="email" value="" formControlName="email"> 
+    Email: <input id="email" type="email" name="email" value="" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> 
     <div>
         <input id="angular" name="vote" type="radio" value="angular" formControlName="vote">
         <label for="angular">Angular</label>
@@ -17,8 +17,8 @@
         <input id="vue" name="vote" type="radio" value="vue" formControlName="vote">
         <label for="vue">Vue</label>
     </div>
-    <div *ngIf="isSubmitted && myForm.errors?.required">
-        <p>Please enter your data correctly</p>
+    <div *ngIf="isSubmitted && (voteForm.controls['email'].invalid || voteForm.controls['vote'].invalid)">
+        <p>Please enter a valid email and select a framework</p>
      </div>
     <button type="submit">Submit</button>
 </form>

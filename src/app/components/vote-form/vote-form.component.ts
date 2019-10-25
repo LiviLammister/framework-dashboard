@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vote-form',
@@ -7,7 +7,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./vote-form.component.sass']
 })
 export class VoteFormComponent implements OnInit {
-  voteForm: FormGroup
+  isSubmitted: boolean = false;
+  voteForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.createForm()
@@ -15,13 +16,14 @@ export class VoteFormComponent implements OnInit {
 
   createForm() {
     this.voteForm = this.fb.group({
-      email: [''],
-      vote: ['']
+      email: ['', [Validators.required]],
+      vote: ['',  [Validators.required]]
     })
   }
 
   onSubmit() {
-    console.log(JSON.stringify(this.voteForm.value))
+    this.isSubmitted = true
+    return this.voteForm.valid ? console.log(JSON.stringify(this.voteForm.value)) : false
   }
 
   ngOnInit() {
