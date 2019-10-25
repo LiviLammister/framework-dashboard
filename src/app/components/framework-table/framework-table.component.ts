@@ -36,8 +36,6 @@ export class FrameworkTableComponent implements OnInit {
   ngOnInit() {
     this.repositoryService.getRepositories().subscribe((data) => {
       this.repos = data;
-      console.log(this.repos[0])
-      console.log(this.repos[0].name, this.repos[0].forks_count, this.repos[0].open_issues_count, this.repos[0].watchers_count)
       this.sortedRepos = this.repos.slice();
     })
   }
