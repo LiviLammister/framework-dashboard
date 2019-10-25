@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { VoteFormComponent } from './components/vote-form/vote-form.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrameworkTableComponent,
-    VoteFormComponent
+    VoteFormComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

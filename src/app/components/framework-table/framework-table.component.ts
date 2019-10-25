@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IRepository } from '../repository/irepository';
-import { RepositoryService } from '../repository/repository.service';
+import { IRepository } from '../../interfaces/irepository';
+import { RepositoryService } from '../../services/repository.service';
 
 @Component({
   selector: 'app-framework-table',
