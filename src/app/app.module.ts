@@ -9,6 +9,7 @@ import { FrameworkTableComponent } from './components/framework-table/framework-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VoteFormComponent } from './components/vote-form/vote-form.component';
 import { ResultsComponent } from './components/results/results.component';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ResultsComponent } from './components/results/results.component';
     FormsModule,
     HttpClientModule,
     MatTableModule,
+    MatSortModule,
     ReactiveFormsModule
   ],
   providers: [],

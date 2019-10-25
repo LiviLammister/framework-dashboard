@@ -1,13 +1,13 @@
 <h2>Voting Results</h2>
-<table class="table">
+<table matSort (matSortChange)="sortData($event)" class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Votes</th>
+        <th mat-sort-header="name">Name</th>
+        <th mat-sort-header="count">Votes</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let result of results">
+      <tr *ngFor="let result of sortedData">
         <td>{{result.name}}</td>
         <td>{{result.count}}</td>
       </tr>
