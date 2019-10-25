@@ -9,12 +9,14 @@ import { IResult } from 'src/app/interfaces/iresult';
   styleUrls: ['./results.component.sass']
 })
 export class ResultsComponent implements OnInit {
-  results: IResult[] = []
+  results;
 
   constructor(private resultsService: ResultService) { }
 
   ngOnInit() {
-    this.results = this.resultsService.getResults()
+    this.resultsService.getResults().subscribe(data => {
+      this.results = data
+    })
   }
 
 }

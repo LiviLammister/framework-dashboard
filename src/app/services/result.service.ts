@@ -1,22 +1,15 @@
 import { Injectable } from '@angular/core';
-
-import { IResult } from '../interfaces/iresult';
-
-const MOCK_RESULTS: IResult[] = [
-  { name: 'angular', count: 10 },
-  { name: 'ember', count: 20 },
-  { name: 'react', count: 30 },
-  { name: 'vue', count: 40 }
-];
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResultService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getResults() {
-    return MOCK_RESULTS;
+  getResults(): Observable<Object> {
+    return this.http.get('http://localhost:3000/api/frameworks');
   }
 }

@@ -23,7 +23,11 @@ export class VoteFormComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true
-    return this.voteForm.valid ? console.log(JSON.stringify(this.voteForm.value)) : false
+    if (this.voteForm.valid) {
+      console.log(JSON.stringify(this.voteForm.value))
+    } else {
+      return false
+    }
   }
 
   ngOnInit() {
