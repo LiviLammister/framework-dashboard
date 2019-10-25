@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, merge } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 
 const BASE_URL = 'https://api.github.com/repos'
 const ANGULAR_URL = `${BASE_URL}/angular/angular`;
@@ -16,7 +16,7 @@ export class RepositoryService {
   constructor(private http: HttpClient) { }
 
   getRepositories(): Observable<Object> {
-    return merge(
+    return combineLatest(
       this.http.get(ANGULAR_URL),
       this.http.get(EMBER_URL),
       this.http.get(REACT_URL),

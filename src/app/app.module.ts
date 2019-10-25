@@ -24,7 +24,6 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule,
     MatSortModule,
     ReactiveFormsModule
   ],

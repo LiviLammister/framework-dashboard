@@ -1,19 +1,17 @@
 <h2>Current Repository Stats</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Forks</th>
-      <th>Issues</th>
-      <th>Watchers</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let repo of frameworkRepositories">
-      <td>{{repo.name}}</td>
-      <td>{{repo.forks_count}}</td>
-      <td>{{repo.open_issues_count}}</td>
-      <td>{{repo.watchers_count}}</td>
-    </tr>
-  </tbody>
+<table class="table" matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="name">Name</th>
+    <th mat-sort-header="forks_count">Forks</th>
+    <th mat-sort-header="open_issues_count">Issues</th>
+    <th mat-sort-header="watchers_count">Watchers</th>
+  </tr>
+
+  <tr *ngFor="let repo of sortedRepos">
+    <td>{{repo.name}}</td>
+    <td>{{repo.forks_count}}</td>
+    <td>{{repo.open_issues_count}}</td>
+    <td>{{repo.watchers_count}}</td>
+  </tr>
+
 </table>

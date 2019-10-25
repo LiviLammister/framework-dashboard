@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 
-import { IRepository } from '../../interfaces/irepository';
 import { RepositoryService } from '../../services/repository.service';
 
 @Component({
@@ -9,17 +9,40 @@ import { RepositoryService } from '../../services/repository.service';
   styleUrls: ['./framework-table.component.sass']
 })
 export class FrameworkTableComponent implements OnInit {
-  frameworkRepositories: IRepository[] = [];
-  constructor(private repositoryService: RepositoryService) {}
+  repos;
+  sortedRepos;
 
-  convertToIRepository(repo): IRepository {
-    const {name, forks_count, open_issues_count, watchers_count} = repo;
-    return {name, forks_count, open_issues_count, watchers_count};
+  constructor(private repositoryService: RepositoryService) { }
+
+  sortData(sort: Sort) {
+    const data = this.repos.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedRepos = data;
+      return;
+    }
+
+    this.sortedRepos = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'name': return compare(a.name, b.name, isAsc);
+        case 'forks_count': return compare(a.forks_count, b.forks_count, isAsc);
+        case 'open_issues_count': return compare(a.open_issues_count, b.open_issues_count, isAsc);
+        case 'watchers_count': return compare(a.watchers_count, b.watchers_count, isAsc);
+        default: return 0;
+      }
+    });
   }
 
   ngOnInit() {
-    this.repositoryService.getRepositories().subscribe(repo => {
-      this.frameworkRepositories.push(this.convertToIRepository(repo))
+    this.repositoryService.getRepositories().subscribe((data) => {
+      this.repos = data;
+      console.log(this.repos[0])
+      console.log(this.repos[0].name, this.repos[0].forks_count, this.repos[0].open_issues_count, this.repos[0].watchers_count)
+      this.sortedRepos = this.repos.slice();
     })
   }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
